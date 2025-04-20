@@ -1,0 +1,27 @@
+import webbrowser
+
+def search_product_online(barcode):
+    """
+    Open a browser to search for the product using the scanned barcode.
+    """
+    search_url = f"https://www.google.com/search?q={barcode}"
+    webbrowser.open(search_url)
+
+def main():
+    print("Barcode Scanner is active. Scan a barcode or type 'exit' to quit.")
+    
+    while True:
+        barcode = input("Scan barcode: ").strip()
+        
+        if barcode.lower() == 'exit':
+            print("Exiting barcode scanner.")
+            break
+        
+        if barcode:
+            print(f"Searching for product with barcode: {barcode}")
+            search_product_online(barcode)
+        else:
+            print("Invalid input. Please try again.")
+
+if __name__ == "__main__":
+    main()
